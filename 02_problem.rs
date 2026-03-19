@@ -7,9 +7,15 @@ case. Return the total count.
 *Output:* `4`
 */
 
+use std::io;
+use std::io::Write;
+
 fn main() {
-    let st = "Rust";
-    println!("{}", vowel_count(st))
+    print!("Enter your word: ");
+    io::stdout().flush().unwrap();
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read");
+    println!("{}", vowel_count(&input))
 }
 
 fn vowel_count(s:&str)->i32{
